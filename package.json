@@ -1,0 +1,7 @@
+{
+  "name": "AddressVerify",
+  "private": true,
+  "dependencies": {
+    "normalize.css": "^7.0.0"
+  }
+}
