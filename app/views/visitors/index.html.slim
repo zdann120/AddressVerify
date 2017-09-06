@@ -1,9 +1,7 @@
 .container
-  h1 ZDN Enterprises, LLC.
-  hr
-  h2.text-muted.float-right Address Verification Service
   p.lead Please choose from the following options:
   .btn-group
-    = link_to 'Verify a new address', '#', class: 'btn btn-primary btn-lg'
-    = link_to 'I received my verification code in the mail', '#', 
+    = link_to 'Verify a new address', address_submissions_path, class: 'btn btn-primary btn-lg'
+    = link_to 'I received my verification code in the mail',
+      address_verifications_path, 
       class: 'btn btn-success btn-lg'

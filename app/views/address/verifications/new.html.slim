@@ -1,2 +1,5 @@
-h1 Address::Verifications#new
-p Find me in app/views/address/verifications/new.html.slim
+.container
+  = simple_form_for @verification, url: address_verifications_path do |f|
+    = f.input :verification_code, 
+      label: 'Enter your verification code as it appears on the postcard'
+    = f.submit 'Verify', class: 'btn btn-success'
