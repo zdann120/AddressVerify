@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :addresses
+    resources :invitations, only: [:index, :new, :create, :destroy]
+  end
   namespace :address do
     resources :verifications, except: [:index] do
       get '/', on: :collection, to: 'verifications#new'

@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Line1:
+  = @address.line1
+p
+  strong Line2:
+  = @address.line2
+p
+  strong City:
+  = @address.city
+p
+  strong State:
+  = @address.state
+p
+  strong Zip:
+  = @address.zip
+p
+  strong Email:
+  = @address.email
+p
+  strong Phone:
+  = @address.phone
+p
+  strong Verified:
+  = @address.verified
+
+= link_to 'Edit', edit_address_path(@address)
+'  |
+= link_to 'Back', addresses_path

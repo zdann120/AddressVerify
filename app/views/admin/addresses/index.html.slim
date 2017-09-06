@@ -1,0 +1,35 @@
+.container
+  h2 Listing addresses
+
+  table.table
+    thead
+      tr
+        th Line1
+        th Line2
+        th City
+        th State
+        th Zip
+        th Email
+        th Phone
+        th Verified
+        th
+        th
+        th
+
+    tbody
+      - @addresses.each do |address|
+        tr
+          td = address.line1
+          td = address.line2
+          td = address.city
+          td = address.state
+          td = address.zip
+          td = address.email
+          td = address.phone
+          td = address.verified
+          td = link_to 'Show', [:admin, address]
+          td = link_to 'Edit', edit_admin_address_path(address)
+          td = link_to 'Destroy',[:admin, address], data: { confirm: 'Are you sure?' }, method: :delete
+
+  br
+

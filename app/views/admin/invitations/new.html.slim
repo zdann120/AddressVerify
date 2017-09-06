@@ -1,0 +1,3 @@
+.container
+  = simple_form_for @invitation, url: admin_invitations_path do |f|
+    = f.submit 'Generate Code', class: 'btn btn-primary'

@@ -2,6 +2,7 @@ class Address < ApplicationRecord
   before_create :set_verification_code
   after_create :send_postcard
 
+  
   private
 
   def set_verification_code

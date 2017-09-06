@@ -1,0 +1,26 @@
+.container
+  h2 Invite Codes
+  h3 &mdash; Unused Codes
+  table.table
+    thead
+      tr
+        th Created at
+        th Access Code
+    tbody
+      - @invitations.where(used: false).each do |unused|
+        tr
+          td = unused.created_at
+          td = unused.access_code
+  h3 &mdash; Used Codes
+  table.table
+    thead
+      tr
+        th Created at
+        th Access Code
+        th Used by
+    tbody
+      - @invitations.where(used: true).each do |unused|
+        tr
+          td = unused.created_at
+          td = unused.access_code
+          td =  "Address #{unused.verified_address.try(:id)}"

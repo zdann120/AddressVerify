@@ -26,7 +26,7 @@ class Address::SubmissionsController < ApplicationController
   def create
     @address = Address.new(address_params)
     if @address.save
-      @invite.update(used: true)
+      @invite.update(used: true, used_by: @address.id)
       session.delete(:invite_id)
       redirect_to success_address_submissions_url, notice: 'Expect a postcard to arrive within 5 days.'
     end

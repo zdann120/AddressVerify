@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906213518) do
+ActiveRecord::Schema.define(version: 20170906221057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20170906213518) do
     t.datetime "updated_at", null: false
     t.string "postcard_id"
     t.jsonb "webhook_data"
+    t.string "email"
+    t.index ["email"], name: "index_addresses_on_email", unique: true
     t.index ["postcard_id"], name: "index_addresses_on_postcard_id", unique: true
     t.index ["verification_code"], name: "index_addresses_on_verification_code", unique: true
   end
