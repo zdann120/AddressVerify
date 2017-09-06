@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906200021) do
+ActiveRecord::Schema.define(version: 20170906213518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "line1"
+    t.string "line2"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "name"
+    t.string "company"
+    t.string "phone"
+    t.jsonb "metadata"
+    t.string "description"
+    t.string "verification_code"
+    t.boolean "verified", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "postcard_id"
+    t.jsonb "webhook_data"
+    t.index ["postcard_id"], name: "index_addresses_on_postcard_id", unique: true
+    t.index ["verification_code"], name: "index_addresses_on_verification_code", unique: true
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -28,6 +49,33 @@ ActiveRecord::Schema.define(version: 20170906200021) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.string "access_code"
+    t.integer "used_by"
+    t.boolean "used", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["access_code"], name: "index_invitations_on_access_code", unique: true
+    t.index ["used_by"], name: "index_invitations_on_used_by", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

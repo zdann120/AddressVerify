@@ -1,0 +1,13 @@
+.container
+  h1 Address::Submissions#new
+  = simple_form_for @address, url: address_submissions_url do |f|
+    = f.input :name, label: 'Your name'
+    = f.input :company
+    = f.input :line1, label: 'Address Line 1'
+    = f.input :line2, label: 'Address Line 2'
+    = f.input :city
+    = f.input :state
+    = f.input :zip
+    = f.input :phone
+    = f.submit 'Submit for Verification', class: 'btn btn-success'
+  p Invite ID: #{session['invite_id']}

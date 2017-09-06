@@ -1,0 +1,5 @@
+.container
+  p.lead Please enter your access code:
+  = simple_form_for @login, url: process_login_address_submissions_path, method: :post do |f|
+    = f.input :access_code
+    = f.submit 'Proceed', class: 'btn btn-primary'

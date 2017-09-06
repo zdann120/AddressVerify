@@ -67,3 +67,14 @@ gem 'high_voltage'
 gem 'bourbon', '~> 5.0.0.beta.8'
 gem 'neat', '~> 2.1'
 gem 'refills', group: [:development, :test]
+
+gem 'lob'
+
+gem 'bootstrap'
+
+gem 'devise'
+
+gem 'slim-rails'
+
+gem 'haikunator'
+gem 'active_interaction'
